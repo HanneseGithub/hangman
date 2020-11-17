@@ -1,0 +1,8 @@
+#guessedResult {
+
+  box-shadow: black 1px 1px 10px 1px;
+  padding: 5px 15px;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
