@@ -5,22 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Hangman</title>
-  <style>
-    body {
-      width: 100vw;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  </style>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="stylesheet" href="./hangman.css">
   <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
 </head>
 <body>
 <div id="containerr" class="container w-50">
@@ -32,7 +21,6 @@
         <input type="text" id="guess" class="form-control" placeholder="Enter a character...">
         <small class="form-text text-muted">Guess a character of the word!</small>
       </div>
-
       <div class="text-center">
         <button type="submit"  id="submitbtn" class="btn btn-primary w-25">Guess!</button>
       </div>
@@ -40,17 +28,19 @@
         <button type="submit" onclick="location.reload()" id="refreshbtn" class="btn btn-dark w-25">Reset...</button>
       </div>
     </form>
+
     <div id="guessedResult" class="text-center mt-3"></div>
     <div id="livesLeft" class="my-3 text-center text-primary">Lives left: 15</div>
     <h3 id="win" class="text-center text-success mt-3"></h3>
     <h3 id="lost" class="text-center text-dark mt-3"></h3>
 </div>
 <script type="module">
+  // Import the initialized game object from state.js file. Acts like a Singleton.
   import { game } from './state.js'
 
   const hangman = game();
 
-  // Load the gameboard after 2 seconds
+  // Load the gameboard after 2 seconds of waiting.
   setTimeout(() => {
     hangman.loadGameBoard();
   }, 2000)
