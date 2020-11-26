@@ -35,17 +35,21 @@
     <h3 id="lost" class="text-center text-dark mt-3"></h3>
 </div>
 <script type="module">
-  // Import the initialized game object from state.js file. Acts like a Singleton.
+  // Imports the initialized game object from state.js file. Acts like a Singleton.
   import { game } from './state.js'
 
   const hangman = game();
 
-  // Load the gameboard after 2 seconds of waiting.
+  // Disables user's guessing until the word loads.
+  document.getElementById("guess").disabled = true;
+
+  // Loads the gameboard after 2 seconds of waiting.
   setTimeout(() => {
     hangman.loadGameBoard();
+    document.getElementById("guess").disabled = false;
   }, 2000)
 
-  // Call out user input handler after each submit
+  // Calls out user input handler after each submit
   document.getElementById("submitbtn").addEventListener("click", (e) => {
     event.preventDefault();
     hangman.handleUserInput();
